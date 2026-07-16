@@ -2,9 +2,11 @@ package org.levisalazar.system;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import javafx.stage.Stage;
+import org.levisalazar.View.CalculadoraView;
 
 /**
  *
@@ -13,19 +15,22 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
  
-    public static void main(String[] args) {               
+    public static void main(String[] args) {  
+        launch(args);
     }
 
     @Override
     public void start(Stage escenarioPrincipal) throws Exception {
-        //nodos 
-        VBox root = new VBox(); 
+        //Visita de la calculadora 
+        CalculadoraView calculadora = new CalculadoraView(); 
+           //nodos 
+        Pane raiz = new Pane(calculadora.getView());
         
         //escena 
-        Scene escena = new Scene(root);
+        Scene escena = new Scene(raiz, 266, 390);
         
       //mostrar escenario principal
-      escenarioPrincipal.setTitle("asdfasdf");
+      escenarioPrincipal.setTitle("CALCULADORA DE LEVI");
       escenarioPrincipal.setScene(escena);
       escenarioPrincipal.show();
         
