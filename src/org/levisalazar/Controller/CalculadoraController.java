@@ -16,15 +16,13 @@ public class CalculadoraController {
             opcion2 = ""; 
             pantalla.setText("");
         }
-      
         //si ya se completo uncalculo // reiniciar 
         if (calculoTerminado && entrada.matches("[0-9]")) {
-        opcion1 = "";
-        operador = ""; 
-        opcion2 = ""; 
+            opcion1 = "";
+            operador = ""; 
+            opcion2 = ""; 
         }
         calculoTerminado = false; 
-        
         
         if  (entrada.matches("[0-9]")){
             if (operador.isEmpty()) {
@@ -32,21 +30,38 @@ public class CalculadoraController {
             }else { 
                 opcion2 += entrada; 
             } 
-                actualizarPantalla(pantalla);
-            }else if (entrada.equals("+")) {
-                operador = entrada; 
-                actualizarPantalla(pantalla);
-            }else if (entrada.equals("=")){ 
+            actualizarPantalla(pantalla);
+        }else if (entrada.equals("+") || entrada.equals("-") || entrada.equals("*") || entrada.equals("/")) {
+            operador = entrada; 
+            actualizarPantalla(pantalla);
+        }else if (entrada.equals("=")){ 
+            if (!opcion1.isEmpty() && !opcion2.isEmpty()) {           
                 if (operador.equals("+")){ 
                     opcion1 = resultadoSuma(opcion1, opcion2);
-                    operador = ""; 
-                    opcion2 = ""; 
-                    calculoTerminado = true ; 
-                }
-                actualizarPantalla(pantalla);
+                }else if (operador.equals("-")){ 
+                    opcion1 = resultadoResta(opcion1, opcion2); 
+                }else if (operador.equals("*")){
+                    opcion1 = resultadoMultiplicacion(opcion1, opcion2); 
+                }else if(operador.equals("/")){
+                    if (opcion2.equals("0")){
+                        opcion1 = "ERROR"; 
+                    } else {
+                        opcion1 = resultadoDivision(opcion1, opcion2); 
+                    }
+//                }else if (operador.equals("^")){
+//                    opcion1 = resultadoElevar(opcion1, opcion2);
+                    
+                        
+                    }
                 
-            }
+                operador = ""; 
+                opcion2 = ""; 
+                calculoTerminado = true; 
+            } // CORREGIDO: Cierre correcto de la condición de campos no vacíos
+            actualizarPantalla(pantalla);
         }
+    }
+    
 
     private void actualizarPantalla(Label pantalla) {
         if (operador.isEmpty()) pantalla.setText(opcion1.isEmpty() ? "0" : opcion1);
@@ -62,6 +77,44 @@ public class CalculadoraController {
         return resultado = String.valueOf(suma); 
     }
 
+      private String resultadoResta(String numeroUno, String numeroDos){
+        String resultado;
+        int datoUno = Integer.parseInt(opcion1);
+        int datoDos = Integer.parseInt(opcion2);
+        int resta = datoUno - datoDos ; 
+        
+        return resultado = String.valueOf(resta); 
+    }
+      
+          private String resultadoMultiplicacion(String numeroUno, String numeroDos){
+        String resultado;
+        int datoUno = Integer.parseInt(opcion1);
+        int datoDos = Integer.parseInt(opcion2);
+        int multiplicar = datoUno * datoDos ; 
+        
+        return resultado = String.valueOf(multiplicar); 
+    }
+          
+          private String resultadoDivision(String numeroUno, String numeroDos){
+              
+              String resultado; 
+              int datoUno = Integer.parseInt(opcion1); 
+              int datoDos = Integer.parseInt(opcion2); 
+              int division = datoUno / datoDos; 
+              
+              return resultado = String.valueOf(division);
+              
+          }
+//             private String resultadoElevar(String numeroUno, String numeroDos){
+//              
+//              String resultado; 
+//              int datoUno = Integer.parseInt(opcion1); 
+//              int datoDos = Integer.parseInt(opcion2); 
+//              int elevar = datoUno ^datoDos; 
+//              
+//              return resultado = String.valueOf(elevar);
+//              
+//          }
 }
 
 

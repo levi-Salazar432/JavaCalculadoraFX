@@ -121,7 +121,7 @@ public class CalculadoraView {
      private Button nuevoBotonOperador (String texto){
         Button btn = new Button(texto);
         btn.setPrefSize(50,50);
-        btn.setStyle("-fx-background-color: #F72323; -fx-text-fill:white; -fx-background-radius:5px;" + " -fx-cursor:hand;");
+        btn.setStyle("-fx-background-color: #F75252; -fx-text-fill:white; -fx-background-radius:5px;" + " -fx-cursor:hand;");
          btn.setFont(Font.font("Consolas " , FontWeight.NORMAL, 20));
            btn.setOnMousePressed(e -> {
            //cambia el fondo 
@@ -132,7 +132,7 @@ public class CalculadoraView {
         //al soltar el clic
        btn.setOnMouseReleased(e -> {
            //retorna el color original
-        btn.setStyle("-fx-background-color: #F72323; ");
+        btn.setStyle("-fx-background-color: #F75252; ");
         //mover el botton en el eje y a la posicion 
         btn.setTranslateY(0);
          });
