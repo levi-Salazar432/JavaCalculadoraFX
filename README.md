@@ -19,6 +19,8 @@ org.levisalazar
     - (surgido) OBS - grabar - microfono 
     - presente si calculadora funcionando : operaciones basicas, operaciones basicas.
     - presente la estructura de codigo
+
+     // https://youtu.be/-KJxKBB1jvQ
     
     
     
