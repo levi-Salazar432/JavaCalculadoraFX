@@ -24,14 +24,14 @@ public class CalculadoraView {
         view = new VBox(15); 
         view.setPadding(new Insets(15));
         view.setAlignment(Pos.TOP_CENTER);
-        view.setStyle("-fx-background-color: #7EC3AF");
+        view.setStyle("-fx-background-color: #2C3E50");
         
         pantalla = new Label("0");
         pantalla.setFont(Font.font("Consolas", FontWeight.BOLD, 40));
         pantalla.setAlignment(Pos.CENTER_RIGHT); 
         //cargar escena y mostrar escenario principal
         pantalla.setPrefSize(235, 50); 
-        pantalla.setStyle("-fx-background-color: #7EC387");
+        pantalla.setStyle("-fx-background-color: #D4E9E2");
         
         cuadroBotones = new GridPane();
         cuadroBotones.setHgap(10); // interlineado entre elementos de la cuadricula
@@ -97,18 +97,18 @@ public class CalculadoraView {
     private Button nuevoBoton (String texto){
         Button btn = new Button(texto);
         btn.setPrefSize(50,50);
-        btn.setStyle("-fx-background-color: #7EC5CE; -fx-text-fill:white; -fx-background-radius:5px;" + " -fx-cursor:hand;");
+        btn.setStyle("-fx-background-color: #A8D1C7; -fx-text-fill:black; -fx-background-radius:5px;" + " -fx-cursor:hand;");
          btn.setFont(Font.font("Consolas " , FontWeight.NORMAL, 20));
            btn.setOnMousePressed(e -> {
            //cambia el fondo 
-        btn.setStyle("-fx-background-color: #AD1457;");
+        btn.setStyle("-fx-background-color: #E6B333;");
         //moviendose en el eje y 2px
         btn.setTranslateY(2);
     });
         //al soltar el clic
        btn.setOnMouseReleased(e -> {
            //retorna el color original
-        btn.setStyle("-fx-background-color: #7EC5CE; ");
+        btn.setStyle("-fx-background-color: #A8D1C7; -fx-text-fill: black; -fx-background-radius: 5px; -fx-cursor: hand;");
         //mover el botton en el eje y a la posicion 
         btn.setTranslateY(0);
          });
@@ -121,18 +121,18 @@ public class CalculadoraView {
      private Button nuevoBotonOperador (String texto){
         Button btn = new Button(texto);
         btn.setPrefSize(50,50);
-        btn.setStyle("-fx-background-color: #06C155; -fx-text-fill:white; -fx-background-radius:5px;" + " -fx-cursor:hand;");
+        btn.setStyle("-fx-background-color: #F4F4F4; -fx-text-fill:black; -fx-background-radius:5px;" + " -fx-cursor:hand;");
          btn.setFont(Font.font("Consolas " , FontWeight.NORMAL, 20));
            btn.setOnMousePressed(e -> {
            //cambia el fondo 
-        btn.setStyle("-fx-background-color: #ED4AD5;");
+        btn.setStyle("-fx-background-color: #4D8C7F;");
         //moviendose en el eje y 2px
         btn.setTranslateY(2);
     });
         //al soltar el clic
        btn.setOnMouseReleased(e -> {
            //retorna el color original
-        btn.setStyle("-fx-background-color: #06C155; ");
+        btn.setStyle("-fx-background-color: #F4F4F4; -fx-text-fill:black; -fx-background-radius: 5px; -fx-cursor: hand;");
         //mover el botton en el eje y a la posicion 
         btn.setTranslateY(0);
          });

@@ -110,7 +110,7 @@ public class CalculadoraController {
 
     private void actualizarPantalla(Label pantalla) {
         if (operador.isEmpty()) pantalla.setText(opcion1.isEmpty() ? "0" : opcion1);
-        else pantalla.setText(opcion1 + " " + operador + " " + opcion2);
+        else pantalla.setText(opcion1 + " " + operador + " " + opcion2);      
     }
     
     private String formatearResultado(double resultado) {
