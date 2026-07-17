@@ -56,7 +56,7 @@ public class CalculadoraController {
             actualizarPantalla(pantalla);
         }
         // 3. Procesar operadores (+, -, *, /)
-        else if (entrada.equals("+") || entrada.equals("-") || entrada.equals("*") || entrada.equals("/")) {
+        else if (entrada.equals("+") || entrada.equals("-") || entrada.equals("*") || entrada.equals("/")|| entrada.equals("^")){
             operador = entrada; 
             actualizarPantalla(pantalla);
         }
@@ -75,6 +75,8 @@ public class CalculadoraController {
                     } else {
                         opcion1 = resultadoDivision(opcion1, opcion2); 
                     }                        
+                }else if (operador.equals("^")){
+                    opcion1 = resultadoPotencia(opcion1,opcion2);
                 }
                 
                 operador = ""; 
@@ -123,7 +125,14 @@ private String resultadoSuma(String numeroUno, String numeroDos) {
         double datoDos = Double.parseDouble(numeroDos);
         return formatearResultado(datoUno / datoDos);
     }
+    
+    private String resultadoPotencia(String numeroUno, String numeroDos){
+        double base = Double.parseDouble(numeroUno); 
+        double exponente = Double.parseDouble(numeroDos); 
+        return formatearResultado(Math.pow(base, exponente)); 
+    }
 }
+   
     
 //agregar un video explicando la calculadora
 
