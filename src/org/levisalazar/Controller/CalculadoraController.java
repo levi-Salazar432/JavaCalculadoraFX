@@ -56,7 +56,7 @@ public class CalculadoraController {
             actualizarPantalla(pantalla);
         }
         // 3. Procesar operadores (+, -, *, /)
-        else if (entrada.equals("+") || entrada.equals("-") || entrada.equals("*") || entrada.equals("/")|| entrada.equals("^") || entrada.equals("%")){
+        else if (entrada.equals("+") || entrada.equals("-") || entrada.equals("*") || entrada.equals("/")|| entrada.equals("^")){
             operador = entrada; 
             actualizarPantalla(pantalla);
         }
@@ -70,6 +70,16 @@ public class CalculadoraController {
                 actualizarPantalla(pantalla);
             }
         }
+        
+      else if (entrada.equals("%")) {
+    if (!opcion1.isEmpty() && !operador.isEmpty() && !opcion2.isEmpty()) {
+        opcion2 = resultadoPorcentaje(opcion1, opcion2);
+        actualizarPantalla(pantalla);
+    } else if (!opcion1.isEmpty() && operador.isEmpty()) {
+        opcion1 = formatearResultado(Double.parseDouble(opcion1) / 100);
+        actualizarPantalla(pantalla);
+    }
+}
         // 4. Procesar el igual (=)
         else if (entrada.equals("=")) { 
             if (!opcion1.isEmpty() && !opcion2.isEmpty()) {            
@@ -148,6 +158,12 @@ private String resultadoSuma(String numeroUno, String numeroDos) {
             return "ERROR";
         }
         return formatearResultado(Math.sqrt(valor));
+    }
+    
+    private String resultadoPorcentaje(String numeroUno, String numeroDos){
+        double base = Double.parseDouble(numeroUno); 
+        double porcentaje = Double.parseDouble(numeroDos); 
+       return formatearResultado((base * porcentaje) / 100);
     }
 }
    
