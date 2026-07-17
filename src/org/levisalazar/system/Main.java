@@ -30,7 +30,7 @@ public class Main extends Application {
         Scene escena = new Scene(raiz, 266, 390);
         
       //mostrar escenario principal
-      escenarioPrincipal.setTitle("CALCULADORA DE LEVI");
+      escenarioPrincipal.setTitle("CALCULADORA");
       escenarioPrincipal.setScene(escena);
       escenarioPrincipal.show();
         

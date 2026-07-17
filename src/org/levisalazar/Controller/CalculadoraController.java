@@ -47,16 +47,13 @@ public class CalculadoraController {
                 
             }
         }
-    
+
     private void actualizarPantalla(Label pantalla) {
-        if (operador.isEmpty()) {
-            pantalla.setText(opcion1); 
-        } else {
-            pantalla.setText(opcion1 + " " + operador + " " + opcion2);
-        }
+        if (operador.isEmpty()) pantalla.setText(opcion1.isEmpty() ? "0" : opcion1);
+        else pantalla.setText(opcion1 + " " + operador + " " + opcion2);
     }
     
-    private String resultadoSuma(String numeroUno, String numeroDos){
+     private String resultadoSuma(String numeroUno, String numeroDos){
         String resultado;
         int datoUno = Integer.parseInt(opcion1);
         int datoDos = Integer.parseInt(opcion2);
@@ -64,4 +61,7 @@ public class CalculadoraController {
         
         return resultado = String.valueOf(suma); 
     }
+
 }
+
+
