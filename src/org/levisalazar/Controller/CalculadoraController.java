@@ -56,9 +56,19 @@ public class CalculadoraController {
             actualizarPantalla(pantalla);
         }
         // 3. Procesar operadores (+, -, *, /)
-        else if (entrada.equals("+") || entrada.equals("-") || entrada.equals("*") || entrada.equals("/")|| entrada.equals("^")){
+        else if (entrada.equals("+") || entrada.equals("-") || entrada.equals("*") || entrada.equals("/")|| entrada.equals("^") || entrada.equals("%")){
             operador = entrada; 
             actualizarPantalla(pantalla);
+        }
+        
+        else if (entrada.equals("√")){
+            if (!opcion1.isEmpty()){
+                opcion1 = resultadoRaiz(opcion1); 
+                operador = ""; 
+                opcion2 = ""; 
+                calculoTerminado = true; 
+                actualizarPantalla(pantalla);
+            }
         }
         // 4. Procesar el igual (=)
         else if (entrada.equals("=")) { 
@@ -130,6 +140,14 @@ private String resultadoSuma(String numeroUno, String numeroDos) {
         double base = Double.parseDouble(numeroUno); 
         double exponente = Double.parseDouble(numeroDos); 
         return formatearResultado(Math.pow(base, exponente)); 
+    }
+    
+    private String resultadoRaiz(String numeroUno){
+        double valor = Double.parseDouble(numeroUno);
+        if (valor < 0 ) { 
+            return "ERROR";
+        }
+        return formatearResultado(Math.sqrt(valor));
     }
 }
    
