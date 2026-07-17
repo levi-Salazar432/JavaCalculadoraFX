@@ -24,14 +24,14 @@ public class CalculadoraView {
         view = new VBox(15); 
         view.setPadding(new Insets(15));
         view.setAlignment(Pos.TOP_CENTER);
-        view.setStyle("-fx-background-color: #F09CEF");
+        view.setStyle("-fx-background-color: #7EC3AF");
         
         pantalla = new Label("0");
         pantalla.setFont(Font.font("Consolas", FontWeight.BOLD, 40));
         pantalla.setAlignment(Pos.CENTER_RIGHT); 
         //cargar escena y mostrar escenario principal
         pantalla.setPrefSize(235, 50); 
-        pantalla.setStyle("-fx-background-color: #F7D2F5");
+        pantalla.setStyle("-fx-background-color: #7EC387");
         
         cuadroBotones = new GridPane();
         cuadroBotones.setHgap(10); // interlineado entre elementos de la cuadricula
@@ -97,7 +97,7 @@ public class CalculadoraView {
     private Button nuevoBoton (String texto){
         Button btn = new Button(texto);
         btn.setPrefSize(50,50);
-        btn.setStyle("-fx-background-color: #8E24AA; -fx-text-fill:white; -fx-background-radius:5px;" + " -fx-cursor:hand;");
+        btn.setStyle("-fx-background-color: #7EC5CE; -fx-text-fill:white; -fx-background-radius:5px;" + " -fx-cursor:hand;");
          btn.setFont(Font.font("Consolas " , FontWeight.NORMAL, 20));
            btn.setOnMousePressed(e -> {
            //cambia el fondo 
@@ -108,7 +108,7 @@ public class CalculadoraView {
         //al soltar el clic
        btn.setOnMouseReleased(e -> {
            //retorna el color original
-        btn.setStyle("-fx-background-color: #8E24AA; ");
+        btn.setStyle("-fx-background-color: #7EC5CE; ");
         //mover el botton en el eje y a la posicion 
         btn.setTranslateY(0);
          });
@@ -121,7 +121,7 @@ public class CalculadoraView {
      private Button nuevoBotonOperador (String texto){
         Button btn = new Button(texto);
         btn.setPrefSize(50,50);
-        btn.setStyle("-fx-background-color: #F75252; -fx-text-fill:white; -fx-background-radius:5px;" + " -fx-cursor:hand;");
+        btn.setStyle("-fx-background-color: #06C155; -fx-text-fill:white; -fx-background-radius:5px;" + " -fx-cursor:hand;");
          btn.setFont(Font.font("Consolas " , FontWeight.NORMAL, 20));
            btn.setOnMousePressed(e -> {
            //cambia el fondo 
@@ -132,7 +132,7 @@ public class CalculadoraView {
         //al soltar el clic
        btn.setOnMouseReleased(e -> {
            //retorna el color original
-        btn.setStyle("-fx-background-color: #F75252; ");
+        btn.setStyle("-fx-background-color: #06C155; ");
         //mover el botton en el eje y a la posicion 
         btn.setTranslateY(0);
          });
